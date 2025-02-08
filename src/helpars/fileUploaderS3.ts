@@ -68,15 +68,15 @@ const uploadProfileImage = multer({
   fileFilter: fileFilter,
 }).single("profileImage");
 
-const uploadSingleDonationeImage = multer({
-  storage: createStorage("donations"),
+const uploadSingleBuildingeImage = multer({
+  storage: createStorage("Buildings"),
   fileFilter: fileFilter,
-}).single("donationImage");
+}).single("BuildingImage");
 
-const uploadDonationsImages = multer({
-  storage: createStorage("donations"),
+const uploadBuildingsImages = multer({
+  storage: createStorage("Buildings"),
   fileFilter: fileFilter,
-}).array("donationImages", 10);
+}).array("BuildingImages", 10);
 
 const upload = multer({
   storage: createStorage(),
@@ -87,6 +87,6 @@ export const fileUploader = {
   upload,
   uploadProfileImage,
   uploadMessageImages,
-  uploadDonationsImages,
-  uploadSingleDonationeImage,
+  uploadBuildingsImages,
+  uploadSingleBuildingeImage,
 };

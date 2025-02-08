@@ -10,9 +10,9 @@ const storage = multer.diskStorage({
   },
 });
 
-const storageDonation = multer.diskStorage({
+const storageBuilding = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(process.cwd(), "uploads/donations"));
+    cb(null, path.join(process.cwd(), "uploads/Buildings"));
   },
   filename: async function (req, file, cb) {
     cb(null, file.originalname);
@@ -28,7 +28,7 @@ const storageWaste = multer.diskStorage({
   },
 });
 
-const profileDonation = multer.diskStorage({
+const profileBuilding = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(process.cwd(), "uploads/profile"));
   },
@@ -38,13 +38,13 @@ const profileDonation = multer.diskStorage({
 });
 
 const upload = multer({ storage: storage });
-const uploadDonation = multer({ storage: storageDonation });
+const uploadBuilding = multer({ storage: storageBuilding });
 const uploadWaste = multer({ storage: storageWaste });
-const uploadprofile = multer({ storage: profileDonation });
+const uploadprofile = multer({ storage: profileBuilding });
 
 const uploadprofileImage = uploadprofile.single("profileImage");
-const uploadDonationImages = uploadDonation.fields([
-  { name: "donationImages", maxCount: 10 },
+const uploadBuildingImages = uploadBuilding.fields([
+  { name: "BuildingImages", maxCount: 10 },
 ]);
 
 const uploadWasteImages = uploadWaste.fields([
@@ -54,7 +54,7 @@ const uploadPostImage = upload.single("postImage");
 
 export const fileUploader = {
   upload,
-  uploadDonationImages,
+  uploadBuildingImages,
   uploadWasteImages,
   uploadprofileImage,
   uploadPostImage,

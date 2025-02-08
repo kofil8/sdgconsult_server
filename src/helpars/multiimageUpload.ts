@@ -15,7 +15,7 @@ const fileFilter = (_req: any, file: any, cb: any) => {
 // Storage configuration
 const storage = multer.diskStorage({
   destination: function (_req, _file, cb) {
-    cb(null, path.join(__dirname, "uploads", "donations"));
+    cb(null, path.join(__dirname, "uploads", "Buildings"));
   },
   filename: function (_req, file, cb) {
     const uniqueSuffix = `${uuidv4()}-${Date.now()}${path.extname(file.originalname)}`;
@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
 });
 
 // Multer instance for handling multiple file uploads
-export const uploadDonationsImages = multer({
+export const uploadBuildingsImages = multer({
   storage: storage,
   fileFilter: fileFilter,
-}).array("donationImages", 10);
+}).array("BuildingImages", 10);
